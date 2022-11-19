@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Virtual</title>
+    <link rel="stylesheet" href="../Modelo/bootstrap.min.css">
+    <link rel="stylesheet" href="../Modelo/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Control/catalogoproducto.js"></script>
+    <script src="../Control/jquery-3.6.1.js"></script>
+    <script src="../Control/carrito.js"></script>
+</head>
+
+<body onload="catalogo()">
+    <header>
+        <div class="logo">
+            <img src="../img/memorykings-listado.png" alt="imglogo" class="img-fluid">
+        </div>
+        <div>
+            <div class="container-fluid">
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                    <button type="button" class="btn btn-primary">Buscar</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <div class="linea"></div>
+    <div>
+        <ul class="menu-barranavegacion1">
+            <li ass="nav-itemcl">
+                <a class="nav-link" href="../index.html">Portal web</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Vista/producto.html" >Productos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="../Vista/carrito.html">Carrito</a>
+            </li>
+        </ul>
+    </div>
+    <article>
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="../img/intel 12g banner.png" width="1920px" height="350px" alt="Los Angeles"
+                        class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/threadripper banner.jpg" width="1920px" height="350px" alt="Chicago"
+                        class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/banner-75800x.jpg" width="1920px" height="350px" alt="New York"
+                        class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/intel 10g banner.jpg" width="1920px" height="350px" alt="New York"
+                        class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="../img/ryzen7y5 banner.jpg" width="1920px" height="350px" alt="New York"
+                        class="d-block w-100">
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </article>
+
+    <div class="alert container position-sticky top-0 alert-primary hide" role="alert">
+        Producto Añadido al carrito!
+    </div>
+    <div class="alert container position-sticky top-0 alert-danger remove" role="alert">
+        Producto removido!
+    </div>
+    <!-- lista de productos -->
+    <section>
+        <aside>
+            <h2 class="h4 m-4 text-primary">Productos</h2>
+
+            <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti0"></h5>
+                        <img src="../img/core 3 11va.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white " id="de0">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st0"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe0"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()" >Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti1"></h5>
+                        <img src="../img/core 5 11va.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de1">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st1"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe1"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button"  onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti2"></h5>
+                        <img src="../img/core 7 11va.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de2">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st2"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe2"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti3"></h5>
+                        <img src="../img/ryzen 3.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de3">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st3"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe3"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti4"></h5>
+                        <img src="../img/ryzen 5.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de4">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st4"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe4"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti5"></h5>
+                        <img src="../img/ryzen 7.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de5">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st5"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe5"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti6"></h5>
+                        <img src="../img/ryzen 9.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de6">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st6"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe6"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti7"></h5>
+                        <img src="../img/core 9 12g.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de7">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st7"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe7"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center mb-4">
+                    <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                        <h5 class="card-title pt-2 text-center text-primary" id="ti8"></h5>
+                        <img src="../img/ryzen threadripper.jpg" width="500px" height="220px" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <p class="card-text text-white" id="de8">
+                                </p>
+                            <p class="card-text text-white-50 description" id="st8"></p>
+                            <h5 class="text-primary">Precio: <span class="precio" id="pe8"></span></h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary button" onclick="addcarrito()">Añadir a Carrito</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </aside>
+    </section>
+    <!-- footer -->
+    <footer>
+        <div class="footer">
+            <div class="container">
+
+                <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                    <div class="Follow">
+                        <img style="width: 230px; height: 150px" src="../img/memorykings-listado.png" alt="" />
+                        <p style="color: white">Siguenos en redes sociales</p>
+                    </div>
+                    <ul class="location_icon">
+                        <li> <a href="#"><img src="../icon/facebook.png"></a></li>
+                        <li> <a href="#"><img src="../icon/Twitter.png"></a></li>
+                        <li> <a href="#"><img src="../icon/linkedin.png"></a></li>
+                        <li> <a href="#"><img src="../icon/instagram.png"></a></li>
+                    </ul>
+                </div>
+                <div class="box-footer">
+                    <div>
+                        <ul>
+                            <h5 style="color: white"><b>Sobre Nosotros</b></h5>
+                            <li><a style="color: white" href="#">Quienes Somos</a></li>
+                        </ul>
+                        <br>
+                        <ul>
+                            <h5 style="color: white"><b>Política</b></h5>
+                            <li><a style="color: white" href="#">Política de privacidad</a></li>
+                            <li><a style="color: white" href="#">Política de cookies</a></li>
+                            <li><a style="color: white" href="#">Términos y condiciones</a></li>
+                            <li><a style="color: white" href="#">Preguntas frecuentes</a></li>
+                        </ul>
+                        <img src="../img/Item_libro_de_reclamaciones_128x80.png" alt="" /><br>
+                    </div>
+                    <br>
+                    <div>
+                        <ul>
+                            <h5 style="color: white"><b>Nuestro Productos</b></h5>
+                            <li><a style="color: white" href="#">Productos</a></li>
+                            <li><a style="color: white" href="#">Marcas</a></li>
+                            <li><a style="color: white" href="#">Novedades</a></li>
+                            <li><a style="color: white" href="#">Ofertas</a></li>
+                            <li><a style="color: white" href="#">Combos</a></li>
+                            <li><a style="color: white" href="#">Laptops</a></li>
+                            <li><a style="color: white" href="#">PC de Marcas</a></li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div>
+                        <ul>
+                            <h5 style="color: white"><b>Contáctanos</b></h5>
+                            <li><a style="color: white" href="#">Atención al cliente:</a></li>
+                            <li><a style="color: white" href="#">(01) 644-9191</a></li>
+                            <li><a style="color: white" href="#">(llamadas y WhatsApp)</a></li>
+                            <li><a style="color: white" href="#">(Lun-Sab 8 a.m. a 8 p.m.)</a></li>
+                            <li><a style="color: white" href="#">atencion@crisol.com.pe</a></li>
+                            <li><a style="color: white" href="#">Comprobante electrónico</a></li>
+                        </ul>
+                    </div>
+                    <br>
+                    <div>
+                        <ul>
+                            <h5 style="color: white"><b>Mi cuenta</b></h5>
+                            <li><a style="color: white" href="#">Mis pedidos</a></li>
+                            <li><a style="color: white" href="#">Mis deseos</a></li>
+                            <br>
+                            <h5 style="color: white"><b>Medios de pago</b></h5>
+                            <br>
+                        </ul>
+                        <img src="../img/footer-paymet-image.png" alt="" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="copyright">
+            <div class="">
+                <p style="color: white">&copy 2013 Memory Kings Perú S.A.C. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    
+    <script>
+       /* let i;
+                 let product= '{"producto":['+
+                 '{"marca": "Intel","modelo": "Core i3  11th Gen","nucleos": "4","hilos": "8","frecuencia": "3.50 GHz","memoria": "DDR4","grafica": "Gráficos Intel® UHD 750","stock": "50","Precio": "$100.00","codigo": "0001","imagen": "core 3 11va.jpg"},'+
+                 '{"marca": "Intel","modelo": "Core i5 11th Gen","nucleos": "6","hilos": "12","frecuencia": "4.40 GHz","memoria": "DDR4","grafica": "Gráficos Intel® UHD 750","stock": "50","Precio": "$174.00","codigo": "0002","imagen": "core 5 11va.jpg"},'+
+                 '{"marca": "Intel","modelo": "Core i7 11th Gen","nucleos": "8","hilos": "16","frecuencia": "4.70 GHz","memoria": "DDR4","grafica": "Gráficos Intel® UHD 750","stock": "50","Precio": "$440.00","codigo": "0003","imagen": "core 7 11va.jpg"},'+
+                 '{"marca": "AMD","modelo": "Ryzen 3 3200G","nucleos": "4","hilos": "8","frecuencia": "4.20 GHz","memoria": "DDR4","grafica": "Radeon™ Graphics","stock": "50","Precio": "$95.00","codigo": "0004","imagen": "ryzen 3.jpg"},'+
+                 '{"marca": "Intel","modelo": "Ryzen 5 5600 G","nucleos": "6","hilos": "12","frecuencia": "4.40 GHz","memoria": "DDR4","grafica": "Radeon™ Graphics","stock": "50","Precio": "$155.00","codigo": "0005","imagen": "ryzen 5.jpg"},'+
+                 '{"marca": "AMD","modelo": "Ryzen 7 5700G","nucleos": "8","hilos": "16","frecuencia": "4.60 GHz","memoria": "DDR4","grafica": "Radeon™ Graphics","stock": "50","Precio": "$355.00","codigo": "0006","imagen": "ryzen 7.jpg"},'+
+                 '{"marca": "AMD","modelo": "Ryzen 9 5900X","nucleos": "12","hilos": "24","frecuencia": "4.80 GHz","memoria": "DDR4","grafica": "Radeon™ Graphics","stock": "50","Precio": "$445.00","codigo": "0007","imagen": "ryzen 9.jpg"},'+
+                 '{"marca": "Intel","modelo": "Core 9 12th Gen","nucleos": "16","hilos": "24","frecuencia": "5.00 GHz","memoria": "DDR4","grafica": "Gráficos UHD Intel® 770","stock": "50","Precio": "$668.00","codigo": "0008","imagen": "core 9 12g.jpg"},'+
+                 '{"marca": "AMD","modelo": "Ryzen™ Threadripper™ PRO 5995WX","nucleos": "64","hilos": "128","frecuencia": "5.50 GHz","memoria": "DDR4","grafica": "Radeon™ Graphics","stock": "50","Precio": "$8260.00","codigo": "0009","imagen": "ryzen threadripper.jpg"}]}';
+                 const objprod = JSON.parse(product);
+                 for (i = 0; i < 9; i++) {
+                    document.getElementById('ti0').innerHTML=`${objprod.producto[i].marca} ${objprod.producto[i].modelo}`;
+                    document.getElementById('de0').innerHTML=`N° de núcleos: ${objprod.producto[i].nucleos}<br>
+                             N° hilos: ${objprod.producto[i].hilos} <br>
+                             Frecuencia: ${objprod.producto[i].frecuencia} <br>
+                             Tipo de memoria:${objprod.producto[i].memoria}<br> 
+                             Gráfica:${objprod.producto[i].grafica} <br>
+                             Código de producto: ${objprod.producto[i].codigo}`;
+                    document.getElementById('st0').innerHTML=`${objprod.producto[i].stock}`;
+                    document.getElementById('pe0').innerHTML=`${objprod.producto[i].Precio}`;
+                     document.getElementById('salida'+i).innerHTML= `
+                 <div class="card shadow mb-1 bg-dark rounded" style="width: 20rem;">
+                     <h5 class="card-title pt-2 text-center text-primary">${objprod.producto[i].marca} ${objprod.producto[i].modelo}</h5>
+                     <img src="../img/${objprod.producto[i].imagen}" width="500px" height="220px" class="card-img-top" alt="...">
+                     <div class="card-body">
+                         <p class="card-text text-white">
+                             N° de núcleos: ${objprod.producto[i].nucleos}<br>
+                             N° hilos: ${objprod.producto[i].hilos} <br>
+                             Frecuencia: ${objprod.producto[i].frecuencia} <br>
+                             Tipo de memoria:${objprod.producto[i].memoria}<br> 
+                             Gráfica:${objprod.producto[i].grafica} <br>
+                             Código de producto: ${objprod.producto[i].codigo}</p>
+                         <p class="card-text text-white-50 description">Stock: ${objprod.producto[i].stock}</p>
+                         <h5 class="text-primary">Precio: <span class="precio">${objprod.producto[i].Precio}</span></h5>
+                         <div class="d-grid gap-2">
+                             <button class="btn btn-primary button">Añadir a Carrito</button>
+                         </div>
+                     </div>
+                 </div>`;
+                 }*/
+    </script>
+</body>
+
+</html>
